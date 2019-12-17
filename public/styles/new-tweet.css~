@@ -1,0 +1,33 @@
+main {
+  color: #545149;
+  background-color: #f4f1ec;
+  font-size: 24px;
+  font-family: "Source Sans Pro", sans-serif;
+  position: relative;
+}
+
+.counter-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.counter {
+  font-family: Bungee, sans-serif;
+}
+
+textarea {
+  color: #545149;
+  background-color: #f4f1ec;
+  font-size: 24px;
+  font-family: "Source Sans Pro", sans-serif;
+  border: none;
+  height: 50px;
+  border-bottom: 4px solid #545149;
+  width: 100%;
+}
+
+input {
+  background-color: #4056A1;
+  color: white;
+  font-family: Bungee, sans-serif;
+}
