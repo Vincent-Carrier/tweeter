@@ -1,4 +1,4 @@
-header {
+#profile-container {
   height: 400px;
   width: 100%;
   display: flex;
@@ -9,10 +9,10 @@ header {
   background-image: url(../images/45-degree-fabric-light.png);
 }
 
-header h2 {
+#profile-container h2 {
   font-weight: 300;
 }
 
-header h2 span {
+#profile-container h2 span {
   font-weight: 700;
 }

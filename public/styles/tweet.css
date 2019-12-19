@@ -1,0 +1,41 @@
+.tweet-container {
+  margin: 32px 0;
+  border: 4px solid #545149;
+  padding: 12px;
+}
+
+.tweet-container:hover {
+  box-shadow: 8px 8px 0 #aaa
+}
+
+.tweet-container header {
+  display: flex;
+  align-items: center;
+  height: 32px;
+}
+
+.tweet-container header img {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+}
+
+.tweet-owner {
+  font-weight: 700;
+  margin-left: 12px;
+}
+
+.tweet-username {
+  justify-self: flex-end;
+  margin-left: auto;
+  font-weight: 300;
+}
+
+.tweet-container hr {
+  border: 2px solid #545149;
+}
+
+.tweet-container footer p {
+  padding: 0;
+  font-size: 14px;
+}
