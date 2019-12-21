@@ -16,11 +16,10 @@ const createTweetElement = function (tweet) {
     $('<img>').attr('src', tweet.user.avatars),
     $('<h3>').addClass('tweet-owner').text(tweet.user.name),
     $('<h4>').addClass('tweet-username').text(tweet.user.handle)
-  );
+  )
   const $content = $('<p>').addClass('tweet-content')
-    .text(tweet.content.text);
-  const $footer = $('<footer>')
-    .append($('<p>').text(`${daysAgo(tweet.created_at)} days ago`));
+    .text(tweet.content.text)
+  const $footer = $('<footer>').append($('<p>').text(`${daysAgo(tweet.created_at)} days ago`));
   $tweet.append($header, $content, $('<hr>'), $footer);
   return $tweet;
 }
@@ -38,10 +37,21 @@ const tweetData = {
 }
 
 const renderTweets = (tweets) => {
-  $tweets = tweets.map(createTweetElement);
-  $('main').append($tweets);
+  $tweets = tweets.map(createTweetElement).reverse()
+  $('#tweets article').replaceWith($tweets);
+}
+
+const fetchTweets = (callback) => {
+  $.getJSON('/tweets', null, (tweets) => callback(tweets))
 }
 
 $(document).ready(() => {
-  renderTweets([tweetData, tweetData]);
+  fetchTweets(tweets => renderTweets(tweets))
+  $('#tweet-form').submit(function(e) {
+    e.preventDefault();
+    $.ajax({method: 'POST', url: '/tweets', data: $(this).serialize()})
+			.done(() => {
+        fetchTweets(tweets => renderTweets(tweets))
+			}).fail((_, e) => console.log("Request failed:", e))
+  })
 });
