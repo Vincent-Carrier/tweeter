@@ -49,9 +49,16 @@ $(document).ready(() => {
   fetchTweets(tweets => renderTweets(tweets))
   $('#tweet-form').submit(function(e) {
     e.preventDefault();
-    $.ajax({method: 'POST', url: '/tweets', data: $(this).serialize()})
-			.done(() => {
-        fetchTweets(tweets => renderTweets(tweets))
-			}).fail((_, e) => console.log("Request failed:", e))
+    const data = $(this).serialize()
+    console.log(data)
+    const tweetText = data.split('=')[1]
+    if(!tweetText || tweetText.length > 140) {
+      alert("Illegal tweet format!")
+    } else {
+      $.ajax({method: 'POST', url: '/tweets', data})
+        .done(() => {
+          fetchTweets(tweets => renderTweets(tweets))
+        }).fail((_, e) => console.log("Request failed:", e))
+      }
   })
 });
