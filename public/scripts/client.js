@@ -52,21 +52,31 @@ const scrollToForm = () => {
   })
 }
 
+const submitTweet = form => {
+  const data = $(form).serialize()
+  const tweetText = data.split('=')[1]
+  if(!tweetText || tweetText.length > 140) {
+    $('.error-box').show()
+  } else {
+    $('.error-box').hide()
+    $.ajax({method: 'POST', url: '/tweets', data})
+      .done(() => {
+      $('.new-tweet textarea').val('')
+        fetchTweets(tweets => renderTweets(tweets))
+      }).fail((_, e) => console.log("Request failed:", e))
+  }
+}
+
 $(document).ready(() => {
-  $('#write-a-tweet').on('click', (function() { scrollToForm() }))
+  $('#write-a-tweet').click(() => {
+    scrollToForm()
+    $('.new-tweet textarea').focus()
+  })
+
   fetchTweets(tweets => renderTweets(tweets))
+
   $('#tweet-form').submit(function(e) {
     e.preventDefault();
-    const data = $(this).serialize()
-    console.log(data)
-    const tweetText = data.split('=')[1]
-    if(!tweetText || tweetText.length > 140) {
-      alert("Illegal tweet format!")
-    } else {
-      $.ajax({method: 'POST', url: '/tweets', data})
-        .done(() => {
-          fetchTweets(tweets => renderTweets(tweets))
-        }).fail((_, e) => console.log("Request failed:", e))
-      }
+    submitTweet(this)
   })
 });

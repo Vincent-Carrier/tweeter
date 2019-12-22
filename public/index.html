@@ -43,6 +43,11 @@
     <main class="container">
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
+
+        <div class="error-box">
+          <h3>Respect our arbitrary character limit!!!</h3>
+        </div>
+
         <form id="tweet-form" action="/tweets" method="POST">
           <textarea id="tweet-box" name="text" placeholder="What are you humming about?"></textarea>
           <div class="counter-container">
