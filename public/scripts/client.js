@@ -20,6 +20,10 @@ const createTweetElement = function (tweet) {
   const $content = $('<p>').addClass('tweet-content')
     .text(tweet.content.text)
   const $footer = $('<footer>').append($('<p>').text(`${daysAgo(tweet.created_at)} days ago`));
+  const $icons = ['danger', 'share', 'favorite-heart-button'].map(svg => {
+    return $('<img>').attr('src', `/images/${svg}.svg`);
+  })
+  $footer.append($icons)
   $tweet.append($header, $content, $('<hr>'), $footer);
   return $tweet;
 }
@@ -74,7 +78,7 @@ $(document).ready(() => {
     $('.new-tweet textarea').focus()
   })
 
-  // fetchTweets(tweets => renderTweets(tweets))
+  fetchTweets(tweets => renderTweets(tweets))
 
   $('#tweet-form').submit(function(e) {
     e.preventDefault();
