@@ -56,9 +56,9 @@ const submitTweet = form => {
   const data = $(form).serialize()
   const tweetText = data.split('=')[1]
   if(!tweetText || tweetText.length > 140) {
-    $('.error-box').show()
+    $('.error-box').slideDown()
   } else {
-    $('.error-box').hide()
+    $('.error-box').slideUp()
     $.ajax({method: 'POST', url: '/tweets', data})
       .done(() => {
       $('.new-tweet textarea').val('')
@@ -68,7 +68,8 @@ const submitTweet = form => {
 }
 
 $(document).ready(() => {
-  $('#write-a-tweet').click(() => {
+  $('#write-a-tweet').click(e => {
+    e.preventDefault()
     scrollToForm()
     $('.new-tweet textarea').focus()
   })

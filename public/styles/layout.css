@@ -29,22 +29,11 @@ nav {
   justify-content: stretch;
   color: #FFFFFF;
   height: 120px;
-  background-color: #4056A1;
+  background-color: orange;
+  background-image: url(../images/45-degree-fabric-light.png);
   z-index: 999;
   font-family: Bungee, sans-serif;
   padding: 1.5em;
-}
-
-#write-a-tweet {
-  margin-left: auto;
-}
-
-.error-box {
-  display: none;
-  color: red;
-  border: 4px solid red;
-  padding: 0 16px;
-  margin: 16px;
 }
 
 main {
@@ -56,4 +45,44 @@ main {
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
 
+#write-a-tweet {
+  margin-left: auto;
+  color: white;
+  text-decoration: none;
+  font-family: "Source Sans Pro", sans-serif;
+}
 
+.error-box {
+  display: none;
+  color: red;
+  border: 4px solid red;
+  padding: 0 16px;
+  margin: 16px;
+}
+
+#main-content {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  #main-content {
+    flex-direction: row;
+    max-width: 1024px;
+    margin: 0 auto;
+  }
+
+  #main-content > * {
+    margin: 32px;
+  }
+
+  #profile-container {
+    max-width: 300px;
+  }
+
+  nav {
+    background-color: #4056A1;
+    background-image: none;
+  }
+
+}

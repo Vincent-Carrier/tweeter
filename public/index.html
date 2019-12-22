@@ -3,6 +3,7 @@
   <head>
     <!-- Meta Information -->
     <title>Tweeter - Home Page</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
 
     <!-- External CSS -->
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
@@ -27,49 +28,51 @@
     <!-- Top nav bar (fixed) -->
     <nav>
       <span>tweeter</span>
-      <button id="write-a-tweet">Write a tweet</button>
+      <a href="" id="write-a-tweet"><b>Write</b> a tweet</a>
     </nav>
 
-    <header id="profile-container">
-      <div>
-        <img class="avatar" src="/images/profile-hex.png"> 
-      </div>
-      <br>
-      <div>
-        <h2><span>Your</span> Name</h2>
-      </div>
-    </header>
-    <!-- Page-specific (main) content here -->
-    <main class="container">
-      <section class="new-tweet">
-        <h2>Compose Tweet</h2>
-
-        <div class="error-box">
-          <h3>Respect our arbitrary character limit!!!</h3>
+    <div id="main-content">
+      <header id="profile-container">
+        <div>
+          <img class="avatar" src="/images/profile-hex.png"> 
         </div>
+        <br>
+        <div>
+          <h2><span>Vincent</span> Carrier</h2>
+        </div>
+      </header>
+      <!-- Page-specific (main) content here -->
+      <main class="container">
+        <section class="new-tweet">
+          <h2>Compose Tweet</h2>
 
-        <form id="tweet-form" action="/tweets" method="POST">
-          <textarea id="tweet-box" name="text" placeholder="What are you humming about?"></textarea>
-          <div class="counter-container">
-            <input type="submit" value="Tweet">
-            <span class="counter">140</span>
+          <div class="error-box">
+            <h3>Respect our arbitrary character limit!!!</h3>
           </div>
-        </form>
-      </section>
-      <div id="tweets">
-        <article class="tweet-container">
-          <header>
-            <img src="https://i.imgur.com/73hZDYK.png" alt="">
-            <h3 class="tweet-owner">Vincent</h3>
-            <h4 class="tweet-username">@vnct</h4>
-          </header>
-          <p class="tweet-content">I like turtles</p>
-          <hr>
-          <footer>
-            <p>10 days ago</p>
-          </footer>
-        </article>
-      </div>
-    </main>
+
+          <form id="tweet-form" action="/tweets" method="POST">
+            <textarea id="tweet-box" name="text" placeholder="What are you humming about?"></textarea>
+            <div class="counter-container">
+              <input type="submit" value="Tweet">
+              <span class="counter">140</span>
+            </div>
+          </form>
+        </section>
+        <div id="tweets">
+          <article class="tweet-container">
+            <header>
+              <img src="https://i.imgur.com/73hZDYK.png" alt="">
+              <h3 class="tweet-owner">Vincent</h3>
+              <h4 class="tweet-username">@vnct</h4>
+            </header>
+            <p class="tweet-content">I like turtles</p>
+            <hr>
+            <footer>
+              <p>10 days ago</p>
+            </footer>
+          </article>
+        </div>
+      </main>
+    </div>
   </body>
 </html>
