@@ -45,6 +45,13 @@ const fetchTweets = (callback) => {
   $.getJSON('/tweets', null, (tweets) => callback(tweets))
 }
 
+const scrollToForm = () => {
+  $btn = $('#write-a-tweet')
+  $btn.animate({
+    scrollTop: $('#tweet-form').offset().top - $btn.offset.top +$btn.scrollTop
+  })
+}
+
 $(document).ready(() => {
   fetchTweets(tweets => renderTweets(tweets))
   $('#tweet-form').submit(function(e) {

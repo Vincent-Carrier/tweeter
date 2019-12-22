@@ -25,13 +25,18 @@ body {
 }
 
 nav {
-  display: sticky;
+  display: flex;
+  justify-content: stretch;
   color: #FFFFFF;
   height: 120px;
   background-color: #4056A1;
   z-index: 999;
   font-family: Bungee, sans-serif;
   padding: 1.5em;
+}
+
+#write-a-tweet {
+  margin-left: auto;
 }
 
 main {
