@@ -74,7 +74,7 @@ $(document).ready(() => {
     $('.new-tweet textarea').focus()
   })
 
-  fetchTweets(tweets => renderTweets(tweets))
+  // fetchTweets(tweets => renderTweets(tweets))
 
   $('#tweet-form').submit(function(e) {
     e.preventDefault();
