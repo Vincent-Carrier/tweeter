@@ -49,8 +49,8 @@ const tweetData = {
 
 const renderTweets = tweets => {
   $tweets = tweets.map(createTweetElement).reverse();
-  $("#tweets-container").empty();
-  $("#tweets article").replaceWith($tweets);
+  $("#tweets").empty();
+  $("#tweets").append($tweets);
 };
 
 const fetchTweets = callback => {
