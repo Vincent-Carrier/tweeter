@@ -19,3 +19,6 @@ web technologies, such as AJAX, jQuery and responsive CSS3.
 
 - Express
 - Node 5.10.x or above
+- chance
+- body-parse
+- md5

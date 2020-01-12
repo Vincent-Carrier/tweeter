@@ -42,6 +42,7 @@ const tweetData = {
 
 const renderTweets = (tweets) => {
   $tweets = tweets.map(createTweetElement).reverse()
+  $('#tweets-container').empty();
   $('#tweets article').replaceWith($tweets);
 }
 
@@ -50,10 +51,11 @@ const fetchTweets = (callback) => {
 }
 
 const scrollToForm = () => {
+  $('#new-tweet').slideDown();
   window.scroll({
-    top: $('.new-tweet').offset().top,
+    top: $('#new-tweet').offset().top,
     behavior: 'smooth'
-  })
+  });
 }
 
 const submitTweet = form => {
@@ -65,17 +67,19 @@ const submitTweet = form => {
     $('.error-box').slideUp()
     $.ajax({method: 'POST', url: '/tweets', data})
       .done(() => {
-      $('.new-tweet textarea').val('')
+      $('#new-tweet textarea').val('')
         fetchTweets(tweets => renderTweets(tweets))
       }).fail((_, e) => console.log("Request failed:", e))
   }
 }
 
 $(document).ready(() => {
+  $('#new-tweet').slideUp();
+
   $('#write-a-tweet').click(e => {
     e.preventDefault()
     scrollToForm()
-    $('.new-tweet textarea').focus()
+    $('#new-tweet textarea').focus()
   })
 
   fetchTweets(tweets => renderTweets(tweets))
