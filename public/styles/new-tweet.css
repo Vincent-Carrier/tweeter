@@ -6,6 +6,10 @@ main {
   position: relative;
 }
 
+#new-tweet {
+  display: none;
+}
+
 .counter-container {
   display: flex;
   justify-content: space-between;
@@ -21,14 +25,13 @@ textarea {
   font-size: 24px;
   font-family: "Source Sans Pro", sans-serif;
   border: none;
-  resize: none;
   border-bottom: 4px solid #545149;
-  height: 50px;
+  min-height: 140px;
   width: 100%;
 }
 
 input {
-  background-color: #4056A1;
+  background-color: #4056a1;
   color: white;
   font-family: Bungee, sans-serif;
 }
